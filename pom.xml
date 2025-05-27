@@ -92,7 +92,6 @@
 		<maven-war-plugin.version>3.3.2</maven-war-plugin.version>
 		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-		<snakeyaml.version>2.0</snakeyaml.version>
 	</properties>
 
 	<modules>
@@ -273,11 +272,6 @@
 				<artifactId>javax.mail</artifactId>
 				<version>${javax.mail.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>org.yaml</groupId>
-				<artifactId>snakeyaml</artifactId>
-				<version>${snakeyaml.version}</version>
-			</dependency>
 			<!-- JDK 11+ -->
 			<dependency>
 				<groupId>org.javassist</groupId>
@@ -285,6 +279,23 @@
 				<version>${javassist.version}</version>
 			</dependency>
 			<!-- end of JDK 11+ -->
+
+			<!-- 覆盖依赖版本 -->
+			<dependency>
+				<groupId>org.yaml</groupId>
+				<artifactId>snakeyaml</artifactId>
+				<version>2.4</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.2.13</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>1.2.13</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
