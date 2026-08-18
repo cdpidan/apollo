@@ -60,12 +60,13 @@
 	</developers>
 
 	<properties>
-		<revision>2.5.3-SNAPSHOT</revision>
+		<revision>2.5.3</revision>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<apollo-java.version>2.5.0</apollo-java.version>
-		<spring-boot.version>2.7.11</spring-boot.version>
-		<spring-cloud.version>2021.0.5</spring-cloud.version>
+		<spring-boot.version>2.7.18</spring-boot.version>
+		<spring-cloud.version>2021.0.9</spring-cloud.version>
+		<spring-framework.version>5.3.39</spring-framework.version>
 		<!-- sort by alphabet -->
 		<awaitility.version>4.2.0</awaitility.version>
 		<common-lang3.version>3.18.0</common-lang3.version>
@@ -86,7 +87,9 @@
 		<mysql-connector-j.version>8.2.0</mysql-connector-j.version>
 		<postgre.version>42.7.2</postgre.version>
 		<!-- override transitive dependency versions to fix CVEs -->
+		<logback.version>1.2.13</logback.version>
 		<nimbus-jose-jwt.version>9.37.4</nimbus-jose-jwt.version>
+		<tomcat.version>9.0.120</tomcat.version>
 		<woodstox-core.version>7.1.1</woodstox-core.version>
 		<jettison.version>1.5.4</jettison.version>
 		<!-- Plugins Version sort by alphabet -->
@@ -300,6 +303,13 @@
 			</dependency>
 			<!-- declare Spring BOMs in order -->
 			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring-framework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
 				<version>${spring-boot.version}</version>
@@ -357,12 +367,27 @@
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-classic</artifactId>
-				<version>1.2.13</version>
+				<version>${logback.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-core</artifactId>
-				<version>1.2.13</version>
+				<version>${logback.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-core</artifactId>
+				<version>${tomcat.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-el</artifactId>
+				<version>${tomcat.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-websocket</artifactId>
+				<version>${tomcat.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
